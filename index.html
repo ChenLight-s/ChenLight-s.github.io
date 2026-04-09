@@ -1,115 +1,469 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChenLight-s GitHub Blog</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <meta name="description" content="LightCut：直观易用、功能强大的激光切割控制软件。提供稳定的设备连接、参数管理与切割任务控制。">
+    <meta name="keywords" content="LightCut, 激光切割, 控制软件, 激光控制, 切割任务, 运动控制">
+    <title>LightCut - 激光切割控制软件</title>
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+        :root{
+            --bg: #0b1020;
+            --panel: rgba(255,255,255,.06);
+            --panel2: rgba(255,255,255,.10);
+            --text: rgba(255,255,255,.92);
+            --muted: rgba(255,255,255,.72);
+            --line: rgba(255,255,255,.12);
+            --brand: #60a5fa;
+            --brand2:#22c55e;
+            --warn:#f59e0b;
+            --shadow: 0 18px 50px rgba(0,0,0,.45);
+            --radius: 18px;
         }
-        .header {
-            background-color: #24292f;
-            color: white;
-            text-align: center;
-            padding: 40px;
+        *{ box-sizing:border-box; }
+        html,body{ height:100%; }
+        body{
+            margin:0;
+            font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(1200px 700px at 15% 20%, rgba(96,165,250,.30), transparent 60%),
+                radial-gradient(900px 520px at 85% 20%, rgba(34,197,94,.18), transparent 60%),
+                radial-gradient(800px 520px at 50% 110%, rgba(245,158,11,.16), transparent 55%),
+                linear-gradient(180deg, #070a14 0%, var(--bg) 100%);
         }
-        .header img {
+        a{ color:inherit; text-decoration:none; }
+        .container{ max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+        .nav{
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(14px);
+            background: rgba(7,10,20,.55);
+            border-bottom: 1px solid var(--line);
+        }
+        .nav-inner{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            height: 64px;
+        }
+        .brand{
+            display:flex;
+            gap:10px;
+            align-items:center;
+            font-weight:700;
+            letter-spacing:.2px;
+        }
+        .logo{
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background:
+                radial-gradient(12px 12px at 30% 35%, rgba(255,255,255,.85), rgba(255,255,255,.08) 60%),
+                linear-gradient(135deg, rgba(96,165,250,.95), rgba(34,197,94,.75));
+            box-shadow: 0 10px 25px rgba(0,0,0,.35);
+            border: 1px solid rgba(255,255,255,.18);
+        }
+        .nav-links{
+            display:flex;
+            gap: 18px;
+            align-items:center;
+            color: var(--muted);
+            font-size: 14px;
+        }
+        .nav-links a{
+            padding: 8px 10px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+        }
+        .nav-links a:hover{
+            color: var(--text);
+            background: rgba(255,255,255,.06);
+            border-color: rgba(255,255,255,.10);
+        }
+        .btn{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            gap: 10px;
+            padding: 11px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,.16);
+            background: rgba(255,255,255,.08);
+            color: var(--text);
+            font-weight: 600;
+            transition: transform .12s ease, background .12s ease, border-color .12s ease;
+            cursor:pointer;
+            user-select:none;
+        }
+        .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.24); }
+        .btn.primary{
+            border-color: rgba(96,165,250,.55);
+            background: linear-gradient(135deg, rgba(96,165,250,.32), rgba(34,197,94,.18));
+        }
+        .btn.primary:hover{ border-color: rgba(96,165,250,.75); }
+        .btn .dot{
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
-            margin-bottom: 20px;
+            background: var(--brand2);
+            box-shadow: 0 0 0 6px rgba(34,197,94,.18);
         }
-        .header h1 {
-            margin: 10px 0;
-            font-size: 2em;
+        .hero{
+            padding: 56px 0 34px;
         }
-        .header p {
-            font-size: 1.2em;
-            color: #bbb;
+        .hero-grid{
+            display:grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 22px;
+            align-items: stretch;
         }
-        .repos {
-            padding: 30px;
-            background-color: #fff;
+        .hero h1{
+            margin: 0 0 10px;
+            font-size: 44px;
+            line-height: 1.08;
+            letter-spacing: -0.5px;
         }
-        .repo {
-            background-color: #e1e4e8;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
+        .hero p{
+            margin: 0 0 18px;
+            color: var(--muted);
+            font-size: 16px;
+            max-width: 58ch;
         }
-        .repo h3 {
-            margin-top: 0;
-            color: #0366d6;
+        .hero-card{
+            border: 1px solid var(--line);
+            background: var(--panel);
+            border-radius: var(--radius);
+            padding: 18px;
+            box-shadow: var(--shadow);
         }
-        .repo p {
-            margin-bottom: 10px;
-            font-size: 1em;
-            color: #555;
+        .hero-cta{
+            display:flex;
+            flex-wrap:wrap;
+            gap: 12px;
+            align-items:center;
+            margin-top: 10px;
         }
-        .repo a {
-            color: #0366d6;
-            text-decoration: none;
+        .chips{
+            display:flex;
+            flex-wrap:wrap;
+            gap: 8px;
+            margin-top: 14px;
         }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #24292f;
-            color: white;
+        .chip{
+            font-size: 12px;
+            color: rgba(255,255,255,.78);
+            border: 1px solid rgba(255,255,255,.14);
+            background: rgba(255,255,255,.06);
+            padding: 6px 10px;
+            border-radius: 999px;
         }
-        .footer a {
-            color: #bbb;
-            margin: 0 10px;
-            text-decoration: none;
+        .preview{
+            display:flex;
+            flex-direction:column;
+            gap: 12px;
+            height: 100%;
         }
-        .footer a:hover {
-            text-decoration: underline;
+        .mock{
+            flex: 1;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,.14);
+            background:
+                linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05)),
+                radial-gradient(280px 160px at 25% 20%, rgba(96,165,250,.22), transparent 60%),
+                radial-gradient(240px 160px at 80% 30%, rgba(34,197,94,.16), transparent 60%);
+            overflow:hidden;
+            position: relative;
+            min-height: 260px;
+        }
+        .mock:before{
+            content:"";
+            position:absolute;
+            inset:0;
+            background:
+                linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px),
+                linear-gradient(180deg, rgba(255,255,255,.06) 1px, transparent 1px);
+            background-size: 34px 34px;
+            mask-image: radial-gradient(circle at 50% 40%, black 30%, transparent 70%);
+            opacity: .65;
+            pointer-events:none;
+        }
+        .mock-inner{
+            position:absolute;
+            inset: 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,.12);
+            background: rgba(7,10,20,.55);
+            padding: 12px;
+            display:flex;
+            flex-direction:column;
+            gap: 10px;
+        }
+        .bar{
+            display:flex;
+            gap: 7px;
+            align-items:center;
+        }
+        .bar span{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.18);
+        }
+        .row{
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .panel{
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,.12);
+            background: rgba(255,255,255,.06);
+            padding: 10px;
+            min-height: 76px;
+        }
+        .kpi{
+            display:flex;
+            align-items:flex-end;
+            justify-content:space-between;
+            gap: 10px;
+        }
+        .kpi strong{
+            font-size: 20px;
+            letter-spacing:.2px;
+        }
+        .kpi small{ color: rgba(255,255,255,.70); }
+        .section{
+            padding: 26px 0 8px;
+        }
+        .section h2{
+            margin: 0 0 10px;
+            font-size: 22px;
+            letter-spacing: -0.2px;
+        }
+        .grid{
+            display:grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+        .card{
+            border: 1px solid var(--line);
+            background: var(--panel);
+            border-radius: 16px;
+            padding: 16px;
+        }
+        .card h3{
+            margin: 0 0 8px;
+            font-size: 15px;
+        }
+        .card p{
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+        .tag{
+            display:inline-flex;
+            align-items:center;
+            gap: 8px;
+            font-size: 12px;
+            color: rgba(255,255,255,.78);
+        }
+        .tag i{
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--brand);
+            box-shadow: 0 0 0 6px rgba(96,165,250,.14);
+        }
+        .dl{
+            display:flex;
+            flex-wrap:wrap;
+            gap: 12px;
+            align-items:center;
+            justify-content:space-between;
+        }
+        .note{
+            color: rgba(255,255,255,.70);
+            font-size: 13px;
+        }
+        footer{
+            margin-top: 26px;
+            padding: 22px 0 34px;
+            border-top: 1px solid var(--line);
+            color: rgba(255,255,255,.66);
+            font-size: 12px;
+        }
+        .footer-row{
+            display:flex;
+            gap: 12px;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+        }
+        .mono{
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+        @media (max-width: 900px){
+            .hero-grid{ grid-template-columns: 1fr; }
+        }
+        @media (max-width: 860px){
+            .grid{ grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-
-    <div class="header">
-        <img src="https://avatars.githubusercontent.com/u/37697394?s=64&v=4" alt="ChenLight-s Avatar" width="120">
-        <h1>ChenLight-s</h1>
-        <p>Welcome to my personal blog hosted on GitHub. Explore my projects and repositories!</p>
-    </div>
-
-    <div class="repos">
-        <h2>My Repositories</h2>
-
-        <div class="repo">
-            <h3><a href="https://github.com/ChenLight-s/51_Serial">51_Serial</a></h3>
-            <p>51单片机的串口程序 - Assembly language for 51 microcontroller.</p>
+    <header class="nav">
+        <div class="container nav-inner">
+            <a class="brand" href="./">
+                <span class="logo" aria-hidden="true"></span>
+                <span>LightCut</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#features">功能亮点</a>
+                <a href="#workflow">工作流</a>
+                <a href="#download">下载</a>
+                <a class="btn primary" href="./download.html"><span class="dot" aria-hidden="true"></span>前往下载</a>
+            </nav>
         </div>
+    </header>
 
-        <div class="repo">
-            <h3><a href="https://github.com/ChenLight-s/ChenLight-s.github.io">ChenLight-s.github.io</a></h3>
-            <p>Personal GitHub blog page - This is the site you're viewing right now!</p>
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-card">
+                    <div class="tag"><i aria-hidden="true"></i><span>激光切割控制软件</span></div>
+                    <h1>LightCut<br/>让激光切割更直观、更稳定</h1>
+                    <p>LightCut 是一款激光切割控制软件，提供直观的用户界面和强大的激光控制功能，帮助你更高效地完成切割任务：连接设备、管理参数、执行作业与监控状态，一站式完成。</p>
+                    <div class="hero-cta">
+                        <a class="btn primary" href="./download.html"><span class="dot" aria-hidden="true"></span>下载 LightCut</a>
+                        <a class="btn" href="#features">查看功能亮点</a>
+                    </div>
+                    <div class="chips" aria-label="关键词">
+                        <span class="chip">直观 UI</span>
+                        <span class="chip">参数管理</span>
+                        <span class="chip">任务控制</span>
+                        <span class="chip">状态监控</span>
+                        <span class="chip">稳定连接</span>
+                    </div>
+                </div>
+                <div class="hero-card preview" aria-label="界面预览（示意）">
+                    <div class="mock" role="img" aria-label="LightCut 控制台界面示意图（占位）">
+                        <div class="mock-inner">
+                            <div class="bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                            <div class="row">
+                                <div class="panel">
+                                    <div class="kpi">
+                                        <div>
+                                            <small>设备状态</small><br/>
+                                            <strong>已连接</strong>
+                                        </div>
+                                        <small class="mono">USB/COM</small>
+                                    </div>
+                                </div>
+                                <div class="panel">
+                                    <div class="kpi">
+                                        <div>
+                                            <small>当前任务</small><br/>
+                                            <strong>切割中</strong>
+                                        </div>
+                                        <small class="mono">00:12:34</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel" style="min-height: 110px;">
+                                <small style="color: rgba(255,255,255,.75);">功率 / 速度 / 频率</small>
+                                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:10px;">
+                                    <div style="padding:10px;border-radius:12px;background:rgba(96,165,250,.12);border:1px solid rgba(96,165,250,.18);">
+                                        <small>功率</small><br/><strong class="mono">65%</strong>
+                                    </div>
+                                    <div style="padding:10px;border-radius:12px;background:rgba(34,197,94,.10);border:1px solid rgba(34,197,94,.18);">
+                                        <small>速度</small><br/><strong class="mono">1200</strong>
+                                    </div>
+                                    <div style="padding:10px;border-radius:12px;background:rgba(245,158,11,.10);border:1px solid rgba(245,158,11,.18);">
+                                        <small>频率</small><br/><strong class="mono">20k</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="note">提示：上方为示意预览。你可以稍后把真实软件截图替换进来。</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="features">
+            <div class="container">
+                <h2>功能亮点</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>直观的用户界面</h3>
+                        <p>清晰的任务入口与参数分区，让新手也能快速上手；常用操作一目了然，减少误操作。</p>
+                    </div>
+                    <div class="card">
+                        <h3>强大的激光控制</h3>
+                        <p>支持功率、速度、频率等关键参数的集中管理与快速切换，便于针对不同材料与工艺做优化。</p>
+                    </div>
+                    <div class="card">
+                        <h3>作业执行与状态监控</h3>
+                        <p>任务执行过程中可查看连接与作业状态，关键指标更直观，便于排查与稳定生产。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="workflow">
+            <div class="container">
+                <h2>典型工作流</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>1. 连接设备</h3>
+                        <p>选择接口并建立连接，确保设备在线与状态正常。</p>
+                    </div>
+                    <div class="card">
+                        <h3>2. 选择/配置参数</h3>
+                        <p>根据材料与工艺配置功率/速度/频率等参数，并可保存为预设。</p>
+                    </div>
+                    <div class="card">
+                        <h3>3. 开始切割并监控</h3>
+                        <p>执行任务，实时查看进度与状态，必要时可暂停/继续以确保安全与质量。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="download">
+            <div class="container">
+                <div class="card">
+                    <div class="dl">
+                        <div>
+                            <h2 style="margin:0 0 6px;">下载 LightCut</h2>
+                            <div class="note">安装包下载与版本信息在下载页集中展示。</div>
+                        </div>
+                        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+                            <a class="btn primary" href="./download.html"><span class="dot" aria-hidden="true"></span>进入下载页</a>
+                            <a class="btn" href="./LightCutSetup.exe" download>直接下载（若已上传）</a>
+                        </div>
+                    </div>
+                    <div class="note" style="margin-top:10px;">
+                        若“直接下载”提示 404，请把安装包文件放到仓库根目录并命名为 <span class="mono">LightCutSetup.exe</span>，然后重新部署即可。
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-row">
+            <div>© <span id="y"></span> LightCut</div>
+            <div class="note">本页面为静态展示页，适配 GitHub Pages。</div>
         </div>
+    </footer>
 
-        <div class="repo">
-            <h3><a href="https://github.com/ChenLight-s/websocket">websocket</a></h3>
-            <p>Go WebSocket implementation - A fast and well-tested WebSocket library.</p>
-        </div>
-
-        <div class="repo">
-            <h3><a href="https://github.com/ChenLight-s/build-your-own-x">build-your-own-x</a></h3>
-            <p>Build your own (insert technology here) - A collection of instructions on building various tech projects.</p>
-        </div>
-
-        <div class="repo">
-            <h3><a href="https://github.com/ChenLight-s/ha_xiaomi_home">ha_xiaomi_home</a></h3>
-            <p>Xiaomi Home Integration for Home Assistant - Python library for Xiaomi smart home devices.</p>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>&copy; 2025 ChenLight-s | <a href="https://github.com/terms">Terms</a> | <a href="https://github.com/privacy">Privacy</a> | <a href="https://github.com/contact">Contact</a></p>
-    </div>
+    <script>
+        document.getElementById('y').textContent = String(new Date().getFullYear());
+    </script>
 
 </body>
 </html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LightCut 下载页：获取 LightCut 激光切割控制软件安装包 LightCutSetup.exe。" />
+  <title>LightCut 下载 - LightCut</title>
+  <style>
+    :root{
+      --bg: #0b1020;
+      --panel: rgba(255,255,255,.06);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --line: rgba(255,255,255,.12);
+      --brand: #60a5fa;
+      --brand2:#22c55e;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% 20%, rgba(96,165,250,.30), transparent 60%),
+        radial-gradient(900px 520px at 85% 20%, rgba(34,197,94,.18), transparent 60%),
+        linear-gradient(180deg, #070a14 0%, var(--bg) 100%);
+    }
+    a{ color:inherit; text-decoration:none; }
+    .container{ max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(7,10,20,.55);
+      border-bottom: 1px solid var(--line);
+    }
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      height: 64px;
+      gap: 14px;
+    }
+    .brand{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .logo{
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background:
+        radial-gradient(12px 12px at 30% 35%, rgba(255,255,255,.85), rgba(255,255,255,.08) 60%),
+        linear-gradient(135deg, rgba(96,165,250,.95), rgba(34,197,94,.75));
+      box-shadow: 0 10px 25px rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap:wrap;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .nav a{
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+    .nav a:hover{
+      color: var(--text);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.10);
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 11px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      font-weight: 700;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.24); }
+    .btn.primary{
+      border-color: rgba(96,165,250,.55);
+      background: linear-gradient(135deg, rgba(96,165,250,.32), rgba(34,197,94,.18));
+    }
+    .btn .dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--brand2);
+      box-shadow: 0 0 0 6px rgba(34,197,94,.18);
+    }
+    main{ padding: 34px 0 26px; }
+    .hero{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .card{
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    h1{ margin: 0 0 10px; font-size: 30px; letter-spacing: -0.2px; }
+    p{ margin: 0; color: var(--muted); line-height: 1.7; }
+    .dlbox{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+    .row{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      align-items:center;
+    }
+    .meta{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .kv{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .kv small{ color: rgba(255,255,255,.70); }
+    .kv strong{ display:block; margin-top: 6px; }
+    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .list{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .warn{
+      margin-top: 12px;
+      border: 1px solid rgba(245,158,11,.30);
+      background: rgba(245,158,11,.12);
+      border-radius: 14px;
+      padding: 12px;
+      color: rgba(255,255,255,.86);
+    }
+    footer{
+      padding: 22px 0 34px;
+      border-top: 1px solid var(--line);
+      color: rgba(255,255,255,.66);
+      font-size: 12px;
+    }
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+      .meta{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container top">
+      <a class="brand" href="./">
+        <span class="logo" aria-hidden="true"></span>
+        <span>LightCut</span>
+      </a>
+      <nav class="nav">
+        <a href="./">软件介绍</a>
+        <a href="./download.html">下载</a>
+        <a class="btn primary" href="./LightCutSetup.exe" download><span class="dot" aria-hidden="true"></span>下载安装包</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container hero">
+      <section class="card">
+        <h1>下载 LightCut</h1>
+        <p>LightCut 是一款激光切割控制软件，提供直观的用户界面和强大的激光控制功能。你可以在此页面获取 Windows 安装包并快速完成安装。</p>
+
+        <div class="meta" aria-label="下载信息">
+          <div class="kv">
+            <small>安装包文件名</small>
+            <strong class="mono">LightCutSetup.exe</strong>
+          </div>
+          <div class="kv">
+            <small>下载方式</small>
+            <strong>浏览器直链下载</strong>
+          </div>
+        </div>
+
+        <div class="warn" id="missingTip" style="display:none;">
+          当前站点未检测到 <span class="mono">LightCutSetup.exe</span>，下载可能会出现 404。请将安装包放置在仓库根目录并命名为该文件名后重新部署。
+        </div>
+      </section>
+
+      <aside class="card dlbox">
+        <div>
+          <div class="row">
+            <a class="btn primary" href="./LightCutSetup.exe" download><span class="dot" aria-hidden="true"></span>下载 LightCutSetup.exe</a>
+            <a class="btn" href="./">返回介绍页</a>
+          </div>
+          <p style="margin-top:10px;">如需将此页面用于 GitHub Pages，请确保安装包与本页面位于同一仓库根目录。</p>
+        </div>
+
+        <div>
+          <strong style="display:block;margin-bottom:8px;">安装步骤</strong>
+          <ol class="list">
+            <li>下载 <span class="mono">LightCutSetup.exe</span></li>
+            <li>双击运行安装程序，按提示完成安装</li>
+            <li>启动 LightCut，连接设备并开始创建/执行切割任务</li>
+          </ol>
+        </div>
+
+        <div>
+          <strong style="display:block;margin-bottom:8px;">常见问题</strong>
+          <ul class="list">
+            <li>下载失败/404：确认仓库根目录存在 <span class="mono">LightCutSetup.exe</span></li>
+            <li>浏览器拦截：右键“保留/继续下载”，或更换浏览器后重试</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;">
+      <div>© <span id="y"></span> LightCut</div>
+      <div>下载文件：<span class="mono">./LightCutSetup.exe</span></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = String(new Date().getFullYear());
+
+    // 若文件不存在，提示用户（仅用于页面体验，不影响真实下载）
+    fetch('./LightCutSetup.exe', { method: 'HEAD', cache: 'no-store' })
+      .then(res => {
+        if (!res.ok) document.getElementById('missingTip').style.display = 'block';
+      })
+      .catch(() => {
+        document.getElementById('missingTip').style.display = 'block';
+      });
+  </script>
+</body>
+</html>
