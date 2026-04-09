@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LightCut 下载页：下载安装包 LightCutSetup.exe" />
+  <title>LightCut 下载</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#121a2b;
+      --text:#e5e7eb;
+      --muted:#a7b0c0;
+      --line: rgba(255,255,255,.12);
+      --brand:#3b82f6;
+      --brand2:#22c55e;
+      --shadow: 0 16px 40px rgba(0,0,0,.35);
+      --radius: 16px;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(180deg, #070a14 0%, var(--bg) 100%);
+      color: var(--text);
+    }
+    a{ color:inherit; text-decoration:none; }
+    .container{ max-width: 980px; margin: 0 auto; padding: 0 20px; }
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(7,10,20,.92);
+      border-bottom: 1px solid var(--line);
+    }
+    .top{
+      height: 62px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .brand{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      font-weight: 800;
+      letter-spacing:.3px;
+    }
+    .logo{
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 10px 22px rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.16);
+    }
+    .nav{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      flex-wrap:wrap;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .nav a{
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+    .nav a:hover{
+      color: var(--text);
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-weight: 800;
+      cursor:pointer;
+    }
+    .btn.primary{
+      border-color: rgba(59,130,246,.55);
+      background: rgba(59,130,246,.18);
+    }
+    .dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--brand2);
+    }
+    main{ padding: 34px 0 26px; }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      align-items:start;
+    }
+    .card{
+      border: 1px solid var(--line);
+      background: rgba(18,26,43,.92);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    h1{ margin: 0 0 10px; font-size: 30px; letter-spacing: -0.2px; }
+    p{ margin:0; color: var(--muted); line-height: 1.8; }
+    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .kv{
+      margin-top: 12px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .box{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .box small{ color: rgba(255,255,255,.70); }
+    .box strong{ display:block; margin-top: 6px; }
+    .list{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); line-height: 1.9; }
+    footer{
+      margin-top: 18px;
+      padding: 20px 0 34px;
+      border-top: 1px solid var(--line);
+      color: rgba(255,255,255,.62);
+      font-size: 12px;
+    }
+    .foot{ display:flex; justify-content:space-between; gap: 12px; flex-wrap:wrap; align-items:center; }
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: 1fr; }
+      .kv{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container top">
+      <a class="brand" href="./">
+        <span class="logo" aria-hidden="true"></span>
+        <span>LightCut</span>
+      </a>
+      <nav class="nav">
+        <a href="./">软件介绍</a>
+        <a href="./download.html">下载</a>
+        <a class="btn primary" href="./LightCutSetup.exe" download><span class="dot" aria-hidden="true"></span>下载安装包</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container grid">
+      <section class="card">
+        <h1>下载 LightCut</h1>
+        <p>这里提供 LightCut 的安装包下载。若点击后出现 404，请确认你已经把安装包上传到仓库根目录，并命名为 <span class="mono">LightCutSetup.exe</span>。</p>
+
+        <div class="kv" aria-label="下载信息">
+          <div class="box">
+            <small>安装包文件名</small>
+            <strong class="mono">LightCutSetup.exe</strong>
+          </div>
+          <div class="box">
+            <small>下载链接</small>
+            <strong class="mono">./LightCutSetup.exe</strong>
+          </div>
+        </div>
+      </section>
+
+      <aside class="card">
+        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+          <a class="btn primary" href="./LightCutSetup.exe" download><span class="dot" aria-hidden="true"></span>下载 LightCutSetup.exe</a>
+          <a class="btn" href="./">返回介绍页</a>
+        </div>
+
+        <div style="margin-top:14px;">
+          <strong style="display:block;margin-bottom:8px;">安装步骤</strong>
+          <ol class="list">
+            <li>下载 <span class="mono">LightCutSetup.exe</span></li>
+            <li>双击运行安装程序，按提示完成安装</li>
+            <li>启动 LightCut，连接设备并开始创建/执行切割任务</li>
+          </ol>
+        </div>
+
+        <div style="margin-top:14px;">
+          <strong style="display:block;margin-bottom:8px;">说明</strong>
+          <ul class="list">
+            <li>本页面为纯静态页面，不包含任何额外脚本探测。</li>
+            <li>若浏览器提示“不安全文件”，请选择保留或使用可信网络环境下载。</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div>© <span id="y"></span> LightCut</div>
+      <div>下载文件：<span class="mono">LightCutSetup.exe</span></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = String(new Date().getFullYear());
+  </script>
+</body>
+</html>
