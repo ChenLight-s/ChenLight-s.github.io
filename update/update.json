@@ -1,10 +1,10 @@
 {
-  "version": "1.0.20",
-  "title": "LightCut 1.0.20",
-  "notes": "更新内容请在此填写（可后续替换为更详细的更新日志）。",
+  "version": "1.0.39",
+  "title": "LightCut 1.0.39",
+  "notes": "修复了bug",
   "publishedAt": "2026-04-09T14:30:00+08:00",
   "downloadUrl": "https://github.com/ChenLight-s/ChenLight-s.github.io/releases/latest/download/LightCutSetup.exe",
-  "sha256": "",
+  "sha256": "sha256:8a523450bd7adcd9554a9399d7d6bbdae0c432f97946a4f30ee222de0916021e",
   "mandatory": false
 }
 
