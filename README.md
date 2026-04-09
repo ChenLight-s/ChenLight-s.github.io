@@ -9,3 +9,8 @@ ChenLight-s的Github主页网站
 
 # 3.2026年4月9日修改
 1.Lightcut ,用于测试Lightcut网站的链接是否正确
+
+# 4.2026年4月9日修改
+1. 已删除下载页：download.html 已移除
+2. 两个按钮都改为直接下载：首页里原本“下载 LightCut / 直接下载（或进入下载页/前往下载）”相关按钮，现在都指向 ./LightCutSetup.exe 并带 download 属性
+3. 导航栏“前往下载” 也改成 直接下载
