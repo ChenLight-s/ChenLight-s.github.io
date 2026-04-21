@@ -1,10 +1,10 @@
 {
-  "version": "1.0.41",
-  "title": "LightCut 1.0.41",
-  "notes": "增加图片功能，优化矢量、文本工程，优化更新",
-  "publishedAt": "2026-04-21T10:30:00+08:00",
+  "version": "1.0.42",
+  "title": "LightCut 1.0.42",
+  "notes": "优化透明背景png输出",
+  "publishedAt": "2026-04-21T22:30:00+08:00",
   "downloadUrl": "https://github.com/ChenLight-s/ChenLight-s.github.io/releases/latest/download/LightCutSetup.exe",
-  "sha256": "d6b6d28afe597e5a9c3774821fd24aa6cd1a1360313d2617c52055a7843245c6",
+  "sha256": "d43e86cc19b1b58883d7d46f0495cb9cf38ca7e947bf35eeeff9ad78d84aa01e",
   "mandatory": true
 }
 
