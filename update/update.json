@@ -1,10 +1,10 @@
 {
-  "version": "1.0.40",
-  "title": "LightCut 1.0.40",
-  "notes": "修复了bug",
-  "publishedAt": "2026-04-10T10:30:00+08:00",
+  "version": "1.0.41",
+  "title": "LightCut 1.0.41",
+  "notes": "增加图片功能，优化矢量、文本工程，优化更新",
+  "publishedAt": "2026-04-21T10:30:00+08:00",
   "downloadUrl": "https://github.com/ChenLight-s/ChenLight-s.github.io/releases/latest/download/LightCutSetup.exe",
-  "sha256": "453eaa1335d3d5fae72c970461eea088fcbe0f26cb99951921c739a79403214f",
+  "sha256": "3fb6a3173cc7629c81175970622ba904816d1191a296af2990d0941a952ddeb6",
   "mandatory": true
 }
 
