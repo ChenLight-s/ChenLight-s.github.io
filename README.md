@@ -1,3 +1,17 @@
+<!--
+ * @作者: 江湖夜雨飘零
+ * @Date: 2023-05-11 23:06:12
+ * @LastEditTime: 2026-04-25 20:54:21
+ * @最后修改人: 江湖夜雨飘零
+ * @Description: 
+ * @FilePath: \LightCut-V1.0d:\project\program\github\ChenLight-s.github.io\README.md
+ * 江湖夜雨
+ * 不乱于心
+ * 不困于情
+ * 不畏将来
+ * 不念过往
+ * Copyright 2026 江湖夜雨飘零
+-->
 # 1.ChenLight-s.github.io
 
 http://ChenLight-s.github.io
@@ -15,3 +29,6 @@ ChenLight-s的Github主页网站
 
 # 2026年4月23日V 1.0.43 版本上传
 更新内容：增加仿真走刀功能，优化图片和矢量路径规划，优化移动逻辑
+
+# 2026年4月25日V 1.0.44 版本上传
+更新内容：增加软件更新链接
