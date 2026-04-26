@@ -1,10 +1,10 @@
 {
-  "version": "1.0.44",
-  "title": "LightCut 1.0.44",
-  "notes": "增加软件更新链接",
-  "publishedAt": "2026-04-25T11:30:00+08:00",
+  "version": "1.0.45",
+  "title": "LightCut 1.0.45",
+  "notes": "下载时关闭窗口，直接退出程序,更新信息请求启用重定向策略",
+  "publishedAt": "2026-04-26T22:30:00+08:00",
   "downloadUrl": "https://github.com/ChenLight-s/ChenLight-s.github.io/releases/latest/download/LightCutSetup.exe",
-  "sha256": "39587160ffac45d13ba80eeaef4ef0242979d0d82b84b29444f8ae7e9395643c",
+  "sha256": "ed89d0dc56109a0b35564f60769b088cbec4de23a985854b4af05b34ae62aac7",
   "mandatory": true
 }
 
