@@ -1,10 +1,10 @@
 {
-  "version": "1.0.46",
-  "title": "LightCut 1.0.46",
-  "notes": "增加软件和主板加密认证功能；\n修改配置文件和日志文件路径；\n断开串口或者串口状态错误时，按钮恢复初始状态；\n修复直接修改 模式、输出、显示、空气选项时，参数不会保存进配置文件问题；\n增加图片调整页面",
-  "publishedAt": "2026-04-26T22:30:00+08:00",
-  "downloadUrl": "https://github.com/ChenLight-s/ChenLight-s.github.io/releases/latest/download/LightCutSetup.1.0.46.exe",
-  "sha256": "d5e9dcd8ee14ba6fdd6a3f7cf4acb507a4928730798fb623d3582c987068b045",
+  "version": "1.0.47",
+  "title": "LightCut 1.0.47",
+  "notes": "优化DPI,算法,调整图像预览窗口参数;\n调整图像预览窗口导出预览图;\n图片复制和拖拽进软件;",
+  "publishedAt": "2026-05-02T19:52:00+08:00",
+  "downloadUrl": "https://github.com/ChenLight-s/ChenLight-s.github.io/releases/latest/download/LightCutSetup.1.0.47.exe",
+  "sha256": "837c0dc869bb79db67b4690f6e6ce0a4ab742019c9ca27afd4fe166b3a289937",
   "mandatory": true
 }
 
