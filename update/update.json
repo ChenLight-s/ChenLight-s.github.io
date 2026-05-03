@@ -1,10 +1,10 @@
 {
-  "version": "1.0.47",
-  "title": "LightCut 1.0.47",
-  "notes": "优化DPI,算法,调整图像预览窗口参数;\n调整图像预览窗口导出预览图;\n图片复制和拖拽进软件;",
-  "publishedAt": "2026-05-02T19:52:00+08:00",
-  "downloadUrl": "https://github.com/ChenLight-s/ChenLight-s.github.io/releases/latest/download/LightCutSetup.1.0.47.exe",
-  "sha256": "837c0dc869bb79db67b4690f6e6ce0a4ab742019c9ca27afd4fe166b3a289937",
+  "version": "1.0.48",
+  "title": "LightCut 1.0.48",
+  "notes": "优化G代码生成，和像素对齐；\n优化导出预览图参数；",
+  "publishedAt": "2026-05-03T09:58:00+08:00",
+  "downloadUrl": "https://github.com/ChenLight-s/ChenLight-s.github.io/releases/latest/download/LightCutSetup.1.0.48.exe",
+  "sha256": "161e4ffcff133d3fa310025c6e869d0647509c9e8671bc8dd8899a196f5c4e91",
   "mandatory": true
 }
 
